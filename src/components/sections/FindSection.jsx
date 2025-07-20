@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Card } from './../ui/Card';
 import { Button } from './../ui/Button';
 import { RecipeModal } from './../RecipeModal';
-import { backEndBaseURL } from '../../config';
+import { backEndBaseURL } from './../../config';
 import { BeatLoader } from 'react-spinners';
 
 export default function FindSection({ user, setUser, onNavigate }) {           

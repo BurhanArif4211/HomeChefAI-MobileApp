@@ -1,1 +1,1 @@
-export const backEndBaseURL = "https://homechef-webapi.vercel.app";
+export const backEndBaseURL = "https://homechef-webapi.vercel.app/"
