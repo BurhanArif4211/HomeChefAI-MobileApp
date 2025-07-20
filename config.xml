@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="io.barif.homechefai" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <platform name="android">
+        <preference name="AndroidWindowSplashScreenAnimatedIcon"  value="res/screen/android/icon.png" />
+        
+        <icon background="res/icon/android/mipmap-ldpi/ic_launcher.png" density="ldpi" foreground="res/icon/android/mipmap-ldpi/ic_launcher.png" />
+        <icon background="res/icon/android/mipmap-mdpi/ic_launcher.png" density="mdpi" foreground="res/icon/android/mipmap-mdpi/ic_launcher_foreground.png" />
+        <icon background="res/icon/android/mipmap-hdpi/ic_launcher.png" density="hdpi" foreground="res/icon/android/mipmap-hdpi/ic_launcher_foreground.png" />
+        <icon background="res/icon/android/mipmap-xhdpi/ic_launcher.png" density="xhdpi" foreground="res/icon/android/mipmap-xhdpi/ic_launcher_foreground.png" />
+        <icon background="res/icon/android/mipmap-xxhdpi/ic_launcher.png" density="xxhdpi" foreground="res/icon/android/mipmap-xxhdpi/ic_launcher_foreground.png" />
+        <icon background="res/icon/android/mipmap-xxxhdpi/ic_launcher.png" density="xxxhdpi" foreground="res/icon/android/mipmap-xxxhdpi/ic_launcher_foreground.png" />
+      </platform>
+    <name>Home Chef AI</name>
+    <description>Your Smart AI powered recipe asssistant.</description>
+    <author email="masterrecon777@gmail.com" href="">
+        B Arif
+    </author>
+    <content src="index.html" />
+    <access origin="https://homechef-webapi.vercel.app" subdomains="true" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+
+</widget>
