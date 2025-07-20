@@ -82,7 +82,11 @@ export default function App() {
       {screen === 'setup' && <ProfileSetup
         user={user}
         onSetupComplete={updatedUser => {
-          setUser(updatedUser);
+          let temp = {...user}
+          temp.fullName = updatedUser.fullName;
+          temp.city = updatedUser.city;
+          temp.gender = updatedUser.gender;
+          setUser(temp);
           setScreen('dashboard');
         }}
       />}

@@ -6,34 +6,21 @@ import { RecipeModal } from '../../RecipeModal';
 import CustomRecipeForm from './../../CustomRecipeForm';
 import { backEndBaseURL } from './../../../config';
 
-export default function CustomRecipesTab({ user }) {
-  const [recipes, setRecipes] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [selected, setSelected] = useState(null);
-  const maxCustom = 20;
-
-  useEffect(() => {
-    loadCustom();
-  }, []);
-
-  async function loadCustom() {
-    setLoading(true);
-    try {
-      const token = localStorage.getItem('authToken');
-      const res = await fetch(`${backEndBaseURL}/api/custom-recipes/`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      const data = await res.json();
-      if (data.success) setRecipes(data.recipes);
-    } catch (e) {
-      console.error(e);
-    } finally {
-      setLoading(false);
-    }
-  }
+export default function CustomRecipesTab({
+    customRecipes=[], setCustomRecipes, user
+  }) {
+      const [recipes, setRecipes] = useState(customRecipes);
+      const [loading, setLoading] = useState(false);
+      const [selected, setSelected] = useState(null);
+      const maxCustom = 20;
+  
+      // Sync local recipes state whenever prop changes
+      useEffect(() => {
+        setRecipes(customRecipes);
+      }, [customRecipes]);
 
   const handleAdded = (newRecipe) => {
-    setRecipes(prev => [newRecipe, ...prev]);
+    setCustomRecipes(prev => [newRecipe, ...prev]);
   };
 
   return (

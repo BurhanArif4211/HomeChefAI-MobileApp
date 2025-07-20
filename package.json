@@ -1,7 +1,7 @@
 {
   "name": "io.barif.homechefai",
   "displayName": "HomeChefAI",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Your Smart AI powered recipe asssistant.",
   "scripts": {
     "build": "webpack --mode development"

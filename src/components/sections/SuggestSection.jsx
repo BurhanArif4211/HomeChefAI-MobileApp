@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { cn } from './../../lib/utils';
 import AISuggestTab from './tabs/AISuggestTab';
 
-export default function SuggestSection({ user }) {
+export default function SuggestSection({ user, customRecipes, setCustomRecipes }) {
   const tabs = ['AI Suggestion', 'Standard'];
   const [active, setActive] = useState('AI Suggestion');
 
@@ -34,7 +34,10 @@ export default function SuggestSection({ user }) {
 
       {/* Content */}
       <div className="flex-1 overflow-auto">
-        {active === 'AI Suggestion' && <AISuggestTab user={user} />}
+        {active === 'AI Suggestion' && <AISuggestTab
+          customRecipes = {customRecipes}
+          setCustomRecipes = {setCustomRecipes} 
+          user={user} />}
         {active === 'Standard' && (
           <p className="p-4 text-gray-400">Standard suggest coming soon.</p>
         )}

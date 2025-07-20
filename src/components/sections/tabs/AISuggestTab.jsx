@@ -9,7 +9,7 @@ import { BeatLoader } from 'react-spinners';
 import { backEndBaseURL } from './../../../config';
 import { LucideStars } from 'lucide-react'
 import { cn } from './../../../lib/utils'
-export default function AISuggestTab({ user }) {
+export default function AISuggestTab({ user,customRecipes, setCustomRecipes }) {
   const [ingredients, setIngredients] = useState([]);
   const [listKey, setListKey] = useState(0);
   const [context, setContext] = useState('');
@@ -80,6 +80,10 @@ export default function AISuggestTab({ user }) {
         body: JSON.stringify({ logId: result.logId }),
       });
       const data = await res.json();
+      if (data.success) {
+        // Update custom recipes in state
+        fetchAndUpdateCustomRecipes();
+      }
       setMessage(data.success ? 'Saved!' : data.message || 'Save failed');
     } catch (err) {
       console.error(err);
@@ -89,7 +93,22 @@ export default function AISuggestTab({ user }) {
       setTimeout(() => setMessage(''), 2000);
     }
   };
+  async function fetchAndUpdateCustomRecipes() {
+    const token = localStorage.getItem('authToken');
+    const res = await fetch(`${backEndBaseURL}/api/custom-recipes/`, {
+      headers: { Authorization: `Bearer ${token}` }
+    });
+    if (res.ok) {
+      let recipesData = await res.json();
+      if (recipesData.success) {
+        setCustomRecipes(recipesData.recipes);
+      } else {
+        console.error('Failed to fetch custom recipes:', recipesData.message);
+      }
+    };
 
+    return res.json();
+  }
   return (
     <div className="p-4 space-y-6 overflow-x-hidden">
       {/* Form */}

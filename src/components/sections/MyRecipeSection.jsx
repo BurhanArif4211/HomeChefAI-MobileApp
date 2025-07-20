@@ -5,7 +5,16 @@ import FavoritesSection from './tabs/FavoritesTab';
 import CustomRecipesTab from './tabs/CustomRecipeTab';
 import AISuggestedRecipesTab from './tabs/AISuggestedRecipesTab'
 
-export default function MyRecipesSection({ user, setUser }) {
+export default function MyRecipeSection({
+   favorites,
+   setFavorites,
+   favoriteRecipesData,
+   setFavoriteRecipesData,
+   customRecipes,
+   setCustomRecipes,
+   user,
+   setUser,
+ }) {
   const tabs = ['Favorites', 'AI Suggested', 'Custom'];
   const [active, setActive] = useState('AI Suggested');
 
@@ -35,16 +44,27 @@ export default function MyRecipesSection({ user, setUser }) {
       </nav>
 
       {/* Content */}
-      
+
       <div className="flex-1 overflow-auto transition-all">
         {active === 'Favorites' && (
-          <FavoritesSection user={user} setUser={setUser} />
+          <FavoritesSection 
+          favoriteRecipesData ={favoriteRecipesData}
+          favorites ={favorites}
+          setFavorites ={setFavorites}
+          setUser ={setUser} 
+          user ={user} />
         )}
         {active === 'AI Suggested' && (
-          <AISuggestedRecipesTab user={user} setUser={setUser} />
+          <AISuggestedRecipesTab 
+          customRecipes ={customRecipes}
+           />
         )}
         {active === 'Custom' && (
-          <CustomRecipesTab user={user} />
+          <CustomRecipesTab 
+          customRecipes ={customRecipes}
+          setCustomRecipes ={setCustomRecipes}
+          setUser ={setUser} 
+          user ={user} />
         )}
       </div>
     </div>

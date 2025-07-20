@@ -9,4 +9,5 @@ node_modules/
 
 #me me
 .env
+oldComponentCode/
 src/config.js
