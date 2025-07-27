@@ -51,7 +51,7 @@ module.exports = {
         },
       },
       animation: {
-        march: 'march 4s linear infinite',
+        march: 'march 4s cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite',
       },
     },
   },

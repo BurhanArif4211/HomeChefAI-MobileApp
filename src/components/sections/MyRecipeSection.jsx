@@ -20,10 +20,6 @@ export default function MyRecipeSection({
 
   return (
     <div className="flex-1 flex flex-col bg-gray-900">
-      {/* Header */}
-      <div className="flex justify-between items-center p-4 bg-gray-800">
-        <h2 className="text-lg font-semibold">My Recipes</h2>
-      </div>
 
       {/* Tabs */}
       <nav className="flex bg-gray-800">

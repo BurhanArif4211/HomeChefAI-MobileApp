@@ -18,7 +18,7 @@ export function RecipeModal({
     <Modal open={open} onClose={onClose} title={recipe.title}>
       {/* Description */}
       {recipe.description && (
-        <p className="text-sm text-gray-400 mb-4">
+        <p className="text-sm text-gray-400 mb-4 max-h-40 overflow-scroll">
           {recipe.description}
         </p>
       )}
@@ -45,7 +45,7 @@ export function RecipeModal({
               className="flex justify-between"
             >
               <span className="">{i.name}</span>
-              <span className="truncate ml-2 max-w-[40vw] text-gray-400">{i.amount}</span>
+              <span className="truncate ml-2 max-w-[60vw] text-gray-400">{i.amount}</span>
             </li>
           ))}
         </ul>

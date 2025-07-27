@@ -67,42 +67,50 @@ export default function FindSection({
   return (
     <>
       {/* Top 2×2 grid of widgets */}
-      <div className='text-xl p-4'>
-        <span className='text-3xl '>{greeting} </span><br />
-        {user.fullName}
+      <div className='text-xl p-4 font-semibold'>
+        <span className='text-4xl font-black bg-gradient-to-tr from-purple-700 to-pink-500 bg-clip-text text-transparent'>{greeting} </span><br />
+        {(user.fullName.charAt(0).toUpperCase() + user.fullName.slice(1))}
       </div>
       <div className="grid grid-cols-2 gap-4 p-4">
         <Card
-          className="cursor-pointer hover:bg-gray-700 flex flex-col items-center justify-center space-y-2"
+          className="bg-gradient-to-br to-purple-700 from-pink-500 p-[0.15rem]"
           onClick={() => onNavigate('Saved')}
         >
-          <div className="text-2xl">❤️</div>
-          <div className="text-lg">{counts.Favorites}</div>
-          <div className="text-sm text-gray-400">My Favorites</div>
+          <div className="cursor-pointer text-center hover:bg-slate-700 flex flex-col items-center justify-center bg-slate-700 h-full rounded-md p-4">
+            <div className="text-2xl">❤️</div>
+            <div className="text-lg">{counts.Favorites}</div>
+            <div className="text-sm text-gray-400">My Favorites</div>
+          </div>
         </Card>
         <Card
-          className="cursor-pointer hover:bg-gray-700 flex flex-col items-center justify-center space-y-2"
+          className="bg-gradient-to-tr from-yellow-200 to-red-500 p-[0.15rem]"
           onClick={() => onNavigate('Groceries')}
         >
-          <div className="text-2xl">🛒</div>
-          <div className="text-lg">{counts.Groceries}</div>
-          <div className="text-sm text-gray-400">Groceries</div>
+          <div className="cursor-pointer text-center hover:bg-slate-700 flex flex-col items-center justify-center bg-slate-700 h-full rounded-md p-4">
+            <div className="text-2xl">🛒</div>
+            <div className="text-lg">{counts.Groceries}</div>
+            <div className="text-sm text-gray-400">Groceries</div>
+          </div>
         </Card>
         <Card
-          className="cursor-pointer hover:bg-gray-700 flex flex-col items-center justify-center space-y-2"
+          className="bg-gradient-to-tr from-red-500 to-yellow-200 p-[0.15rem]"
           onClick={() => onNavigate('Saved')}
         >
-          <div className="text-2xl">📋</div>
-          <div className="text-lg">{counts.Custom}</div>
-          <div className="text-sm text-gray-400">My Recipes</div>
+          <div className="cursor-pointer text-center hover:bg-slate-700 flex flex-col items-center justify-center bg-slate-700 h-full rounded-md p-4">
+            <div className="text-2xl">📋</div>
+            <div className="text-lg">{counts.Custom}</div>
+            <div className="text-sm text-gray-400">My Recipes</div>
+          </div>
         </Card>
         <Card
-          className="cursor-pointer hover:bg-gray-700 flex flex-col items-center justify-center space-y-2"
+          className="bg-gradient-to-tl from-pink-500 to-purple-700 p-[0.15rem]"
           onClick={() => onNavigate('Suggest')}
         >
-          <div className="text-2xl">🤖</div>
-          <div className="text-lg">{counts.AIUsesLeft}</div>
-          <div className="text-sm text-gray-400">AI Uses Left</div>
+          <div className="cursor-pointer text-center hover:bg-slate-700 flex flex-col items-center justify-center bg-slate-700 h-full rounded-md p-4">
+            <div className="text-2xl">🤖</div>
+            <div className="text-lg">{counts.AIUsesLeft}</div>
+            <div className="text-sm text-gray-400">AI Uses Left</div>
+          </div>
         </Card>
       </div>
 
@@ -112,7 +120,7 @@ export default function FindSection({
         {recipes.map(r => (
           <Card
             key={r.recipeId}
-            className="grid grid-cols-2 gap-4 cursor-pointer hover:bg-gray-700"
+            className="grid grid-cols-2 gap-4 cursor-pointer hover:bg-gray-700 max-h-30 overflow-hidden"
             onClick={() => setSelected(r)}
           >
             <div>

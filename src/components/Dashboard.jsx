@@ -178,13 +178,13 @@ export default function Dashboard({ user: initialUser, onLogout }) {
               <Icon
                 className={cn(
                   'w-6 h-6',
-                  isActive ? 'text-gray-100' : 'text-gray-400'
+                  isActive ? 'bg-gradient-to-tr from-purple-700 to-pink-500 rounded-full' : 'text-gray-400'
                 )}
               />
               <span
                 className={cn(
                   'text-xs mt-1',
-                  isActive ? 'text-gray-100' : 'text-gray-400'
+                  isActive ? 'text-gray-100 bg-gradient-to-tr from-purple-700 to-pink-500 bg-clip-text text-transparent' : 'text-gray-400'
                 )}
               >
                 {item.label}

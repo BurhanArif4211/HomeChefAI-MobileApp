@@ -40,10 +40,11 @@ export default function CustomRecipesTab({
       ) : recipes.length ? (
         recipes.map(r => (
           <Card
+        className="cursor-pointer hover:bg-gray-700"
             onClick={() => setSelected(r)}
             key={r.recipeId}>
             <h3 className="text-lg font-semibold">{r.title}</h3>
-            <p className="text-sm text-gray-300">{r.description}</p>
+            <p className="text-sm text-gray-300  max-h-32 overflow-hidden">{r.description}</p>
             <div className="mt-2 flex text-sm text-gray-400">
               <span className="mr-4">⏱ {r.totalTime} min</span>
               <span>🍽 {r.servings} servings</span>

@@ -30,10 +30,11 @@ export default function FavoritesSection({
     <div className="space-y-4 p-4">
       {favoriteRecipesData.map(r => (
         <Card 
+        className="cursor-pointer hover:bg-gray-700 "
         onClick={() => setSelected(r)}
         key={r.recipeId}>
           <h3 className="text-lg font-semibold">{r.title}</h3>
-          <p className="text-sm text-gray-300">{r.description}</p>
+          <p className="text-sm text-gray-300 max-h-32 overflow-hidden">{r.description}</p>
           <div className="mt-2 text-right">
             <Button variant="outline" size="sm" onClick={() => setFavorites(r.recipeId)}>
               X

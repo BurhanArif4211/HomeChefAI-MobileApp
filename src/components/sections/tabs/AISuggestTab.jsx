@@ -9,7 +9,7 @@ import { BeatLoader } from 'react-spinners';
 import { backEndBaseURL } from './../../../config';
 import { LucideStars } from 'lucide-react'
 import { cn } from './../../../lib/utils'
-export default function AISuggestTab({ user,customRecipes, setCustomRecipes }) {
+export default function AISuggestTab({ user, customRecipes, setCustomRecipes }) {
   const [ingredients, setIngredients] = useState([]);
   const [listKey, setListKey] = useState(0);
   const [context, setContext] = useState('');
@@ -114,16 +114,13 @@ export default function AISuggestTab({ user,customRecipes, setCustomRecipes }) {
       {/* Form */}
       <Card className="bg-slate-800 text-white relative overflow-hidden">
         <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="grid grid-cols-2 gap-2">
-            <h3 className="text-xl font-semibold">
-              AI Suggestion
-            </h3>
-
-            <div className="">
-              <Button className="py-1" type="button" variant="outline" size="sm" onClick={loadGrocery}>
-                Load My Groceries
-              </Button>
-            </div>
+          <h3 className="text-4xl leading-[3.5rem] font-black bg-gradient-to-tr from-purple-700 to-pink-500 bg-clip-text text-transparent">
+            AI Suggestion
+          </h3>
+          <div className="grid  gap-2">
+            <Button className="py-1" type="button" variant="outline" size="sm" onClick={loadGrocery}>
+              Load My Groceries
+            </Button>
           </div>
           <span className="text-sm text-slate-300 mb-0.5">Enter ingredients available</span>
           <ListEditor
@@ -147,7 +144,7 @@ export default function AISuggestTab({ user,customRecipes, setCustomRecipes }) {
               <span className="text-lg">Strictly Use Ingredients</span>
             </label>
           </div>
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid gap-2">
             <div>
               <select
                 className="w-full px-3 py-2 rounded-lg bg-gray-700 text-white"
@@ -181,7 +178,7 @@ export default function AISuggestTab({ user,customRecipes, setCustomRecipes }) {
         {/* This is for marching border */}
 
         {loading ? <div className="pointer-events-none select-none absolute inset-0 border-4 border-transparent [mask-clip:padding-box,border-box] [mask-composite:intersect] [mask-image:linear-gradient(transparent,transparent),linear-gradient(#000,#000)]">
-          <div className="absolute w-80 animate-march aspect-square bg-gradient-to-tr from-purple-700 to-pink-400" style={{ offsetDistance: "0%", offsetPath: "rect(0px auto auto 0px round 320px)", overflow: "hidden" }}></div>
+          <div className="absolute w-80 animate-march aspect-square bg-gradient-to-tr from-purple-700 to-pink-400" style={{ offsetDistance: "0%", offsetPath: "rect(-20px auto auto -20px round 320px)", overflow: "hidden" }}></div>
         </div> : ""}
       </Card>
 
@@ -193,7 +190,7 @@ export default function AISuggestTab({ user,customRecipes, setCustomRecipes }) {
       {result && (
         <Card className="space-y-4 bg-gray-800 text-white">
           <h3 className="text-2xl font-bold">{result.recipe.title}</h3>
-          <p className="text-sm text-gray-300">{result.recipe.description}</p>
+          <p className="text-sm text-gray-300 max-h-50 overflow-scroll">{result.recipe.description}</p>
 
           <div className="grid grid-cols-2 gap-4">
             <p><strong>Prep:</strong> {result.recipe.prepTime} min</p>
@@ -212,7 +209,7 @@ export default function AISuggestTab({ user,customRecipes, setCustomRecipes }) {
                   className="flex justify-between"
                 >
                   <span className="">{i.name}</span>
-                  <span className="truncate ml-2 max-w-[40vw] text-gray-400">{i.amount}</span>
+                  <span className="truncate ml-2 max-w-[60vw] text-gray-400">{i.amount}</span>
                 </li>
               ))}
             </ul>
